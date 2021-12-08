@@ -3,10 +3,10 @@ import { Home } from './pages/home';
 import { Login } from "./pages/login";
 import { Register } from "./pages/register";
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faSeedling } from '@fortawesome/free-solid-svg-icons'
 import './assets/images/css/App.css';
 
-library.add(faArrowLeft)
+library.add(faArrowLeft, faSeedling)
 
 function App() {
   return (
