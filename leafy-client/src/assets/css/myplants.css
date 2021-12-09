@@ -1,0 +1,17 @@
+#navbar {
+    transform: translate(0%, 150%);
+}
+
+#navbar > p {
+    font-size: 25px;
+    color: rgb(17,136,60);
+}
+
+#add, #burger {
+    color: rgb(209,231,204);
+}
+
+.plantsquare {
+    background-color: grey;
+    border-radius: 15px;
+}
