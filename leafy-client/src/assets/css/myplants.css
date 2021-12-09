@@ -11,7 +11,75 @@
     color: rgb(209,231,204);
 }
 
-.plantsquare {
-    background-color: grey;
-    border-radius: 15px;
+#my-plants > p {
+    display: flex;
+    justify-content: center;
+    transform: translate(0%, 650%);
 }
+
+.all-plants {
+    width: 65%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    transform: translate(25%, 30%);
+}
+
+#single-plant {
+    height: 10em;
+    width: 100%;
+    object-fit: cover;
+}
+
+.plantsquare {
+    position: relative; 
+    overflow: hidden;
+    background-color: grey;
+    margin: 4px;
+    border-radius: 15px;
+    height: 10em;
+    display: flex;
+    flex-direction: column; 
+}
+
+.bottom-left {
+    position: absolute;
+    color: white;
+    bottom: 2px;
+    left: 10px;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+@media (min-width: 500px) {
+    .all-plants {
+        width: 63%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        transform: translate(30%, 50%);
+        grid-gap: 10px;
+    }
+    .plantsquare {
+        position: relative; 
+        overflow: hidden;
+        background-color: grey;
+        margin: 4px;
+        border-radius: 15px;
+        height: 15em;
+        display: flex;
+        flex-direction: column; 
+    }
+    #single-plant {
+        height: 15em;
+        width: 100%;
+        object-fit: cover;
+    }
+    .bottom-left {
+        position: absolute;
+        color: white;
+        bottom: 2px;
+        left: 10px;
+        font-size: 17px;
+        font-weight: 900;
+    }
+}
+
