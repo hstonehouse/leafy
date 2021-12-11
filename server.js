@@ -3,8 +3,10 @@ const mongoose = require('mongoose');
 const cors = require("cors");
 
 const config = require("./config");
+const authController = require("./controllers/auth.controller");
 
 const app = express();
+const expressSession = require("express-session"); // Express library to handle sessions
 
 var corsOptions = {
     origin: "http://localhost:8081"
@@ -15,6 +17,14 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
+
+app.use(
+    expressSession({
+      secret: process.env.EXPRESS_SESSION_SECRET_KEY, // Reads the secret key
+    })
+);
+
+app.use(authController);
 
 //Link front-end to back-end
 app.use(express.static("./leafy-client/build"));

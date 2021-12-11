@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from "react-router-dom";
 import { useState } from 'react';
+import axios from "axios";
 
 export function Register() {
     const [email, setEmail] = useState("");
@@ -20,12 +21,16 @@ export function Register() {
         setConfirmPassword(event.target.value);
     }
 
-    const registerUser = (event) => {
+    const registerUser = async (event) => {
         event.preventDefault();
-        if (initialPassword === confirmPassword){
-            console.log('Registered!');
+        if (initialPassword === confirmPassword) {
             setWrongPasswordBoolean(false);
-            // do axios post here
+            try {
+                await axios.post("/api/register", {email: email, password: confirmPassword});
+                console.log('Registered!');
+            } catch (error) {
+                console.log(error);
+            }
         } else {
             console.log("Wrong password!");
             setWrongPasswordBoolean(true);
