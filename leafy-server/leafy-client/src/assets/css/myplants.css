@@ -5,12 +5,40 @@
 #navbar > p {
     font-size: 25px;
     color: rgb(17,136,60);
+    user-select: none;
 }
 
 #add, #burger {
     color: rgb(209,231,204);
 }
 
+/* Sidebar */
+.sidebar {
+    position: absolute;
+    background-color: black;
+    z-index: 1;
+    height: 100%;
+    width: 40%;
+}
+
+.sidebar ul {
+    padding-top: 20px;
+    padding-left: 15px;
+}
+
+#small-arrow {
+    color: rgb(17,136,60);
+}
+
+.sidebar li {
+    margin-top: 15px;
+}
+
+.sidebar a {
+    color: white;
+}
+
+/* My plants page */
 #my-plants > p {
     display: flex;
     justify-content: center;
@@ -50,6 +78,7 @@
     font-weight: 900;
 }
 
+/* CSS for browser view */
 @media (min-width: 500px) {
     .all-plants {
         width: 63%;
