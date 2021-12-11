@@ -20,14 +20,13 @@ export function MyPlants() {
             console.log("blah");
             sidebarDiv.style.display = " ";
             sidebarDiv.style.display = "block";
-        
             setSidebar(true);
         }
     }
 
     return (
         <section id="my-plants">
-            <div className="sidebar is-flex">
+            <div className="sidebar">
                 <ul>
                     <FontAwesomeIcon icon="arrow-left" id="small-arrow" onClick={showSideBar}/>
                     <li><a>Plant Directory</a></li>
