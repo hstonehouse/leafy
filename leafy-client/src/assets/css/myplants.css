@@ -39,6 +39,12 @@
     color: white;
 }
 
+/* Search Bar */
+#searchbar {
+    transform: translate(0%, 250%);
+    display: none;
+}
+
 /* My plants page */
 #my-plants > p {
     display: flex;
