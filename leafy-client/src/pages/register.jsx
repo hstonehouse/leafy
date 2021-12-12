@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from 'react';
 import axios from "axios";
 
@@ -8,6 +8,7 @@ export function Register() {
     const [initialPassword, setInitialPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [wrongPassword, setWrongPasswordBoolean] = useState(false);
+    const navigate = useNavigate();
     
     const saveEmail = (event) => {
         setEmail(event.target.value);
@@ -28,8 +29,10 @@ export function Register() {
             try {
                 await axios.post("/api/register", {email: email, password: confirmPassword});
                 console.log('Registered!');
+                navigate("/login");
             } catch (error) {
                 console.log(error);
+                setWrongPasswordBoolean(true);
             }
         } else {
             console.log("Wrong password!");
@@ -39,41 +42,40 @@ export function Register() {
 
     return (
         <section>
-            <div> 
-                <form className="form-container" onSubmit={registerUser}>
-                    <Link to="/">
-                        <FontAwesomeIcon icon="arrow-left" size="2x" id="arrow"/>
-                    </Link>
-                    <label className="label">CREATE AN ACCOUNT</label>
-                    {
-                        wrongPassword ? <label className="label has-text-danger">Passwords do not match</label> : <label></label> 
-                    }
-                    <div className="field">
-                        <div className="control">
-                            <input className="input" type="email" placeholder="Email" onChange={saveEmail} required></input>
+                <div> 
+                    <form className="form-container" onSubmit={registerUser}>
+                        <Link to="/">
+                            <FontAwesomeIcon icon="arrow-left" size="2x" id="arrow"/>
+                        </Link>
+                        <label className="label">CREATE AN ACCOUNT</label>
+                        {
+                            wrongPassword ? <label className="label has-text-danger">Passwords do not match</label> : <label></label> 
+                        }
+                        <div className="field">
+                            <div className="control">
+                                <input className="input" type="email" placeholder="Email" onChange={saveEmail} required></input>
+                            </div>
                         </div>
-                    </div>
-                
-                    <div className="field">
-                        <div className="control">
-                            <input className="input" type="password" placeholder="Password" onChange={saveInitialPassword} required></input>
+                    
+                        <div className="field">
+                            <div className="control">
+                                <input className="input" type="password" placeholder="Password" onChange={saveInitialPassword} required></input>
+                            </div>
                         </div>
-                    </div>
 
-                    <div className="field">
-                        <div className="control">
-                            <input className="input" type="password" placeholder="Confirm Password" onChange={checkPassword} required></input>
+                        <div className="field">
+                            <div className="control">
+                                <input className="input" type="password" placeholder="Confirm Password" onChange={checkPassword} required></input>
+                            </div>
                         </div>
-                    </div>
-                
-                    <div className="field">
-                        <div className="control">
-                            <input className="button is-rounded" type="submit" value="Register" id="form-button" onClick={registerUser}></input>
+                    
+                        <div className="field">
+                            <div className="control">
+                                <input className="button is-rounded" type="submit" value="Register" id="form-button" onClick={registerUser}></input>
+                            </div>
                         </div>
-                    </div>
-                </form>
-
-            </div>
+                    </form>
+                </div>
         </section>
     )
 }

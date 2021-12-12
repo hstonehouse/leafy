@@ -10,6 +10,7 @@ import './assets/css/App.css';
 library.add(faArrowLeft, faSeedling, faBars, faPlusSquare)
 
 function App() {
+  
   return (
     <div >
       <BrowserRouter>

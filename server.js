@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const mongoose = require('mongoose');
 const cors = require("cors");
 
@@ -28,6 +29,9 @@ app.use(authController);
 
 //Link front-end to back-end
 app.use(express.static("./leafy-client/build"));
+app.get('*', function(req, res) {
+    res.sendFile('index.html', {root: path.join(__dirname, './leafy-client/build/')});
+  });
 
 const connectionParams={
     useNewUrlParser: true,
@@ -41,10 +45,6 @@ mongoose.connect(config.dbConnectionString,connectionParams)
     .catch( (err) => {
         console.error(`Error connecting to the database. \n${err}`);
     })
-
-app.get("/", (req, res) => {
-    res.json({ message: "Welcome to Leafy." });
-    });
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

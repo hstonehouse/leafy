@@ -46,7 +46,34 @@ router.post("/api/login", (req, res) => {
             });
         }
 
-        req.session.email = user.email;
+        req.session._id = user._id;
+
+        res.status(200).send({
+            id: user._id,
+            email: user.email,
+            plants: user.plants
+        });
+    })
+})
+
+// Check if user is logged in
+router.get("/api/user", (req, res) => {
+    if (!req.session._id) {
+        return res.status(500).send({
+            message: "Please log in."
+        })
+    }
+    User.findOne({
+        _id: req.session._id
+    }).exec((err, user) => {
+        if (err) {
+          res.status(500).send({ message: err });
+          return;
+        }
+    
+        if (!user) {
+            return res.status(404).send({ message: "User Not found." });
+        }
 
         res.status(200).send({
             id: user._id,
