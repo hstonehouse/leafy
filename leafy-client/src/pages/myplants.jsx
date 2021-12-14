@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link } from "react-router-dom";
-import { GridImage } from '../components/grid-image';
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 
 export function MyPlants() {
     const [sidebar, setSidebar] = useState(false);
     const [searchBar, setSearchBar] = useState(false);
+    const [searchQuery, setSearchQuery] = useState("");
+    const [noPlant, setNoPlantBoolean] = useState(false);
+    const navigate = useNavigate();
     
     const showSideBar = () => {
         const sidebarDiv = document.querySelector(".sidebar");
@@ -34,6 +38,22 @@ export function MyPlants() {
         }
     }
 
+    const saveSearchQuery = (event) => {
+        setSearchQuery(event.target.value);
+    }
+
+    const searchForPlant = async (event) => {
+        event.preventDefault();
+        try {
+            const res = await axios.get(`/api/plantsearch?plant=${searchQuery}`);
+            console.log("Search complete", res.data[0]);
+            navigate(`/plant/${res.data[0].plant_id}`)
+        } catch (error) {
+            setNoPlantBoolean(true);
+            console.log("Search failed.");
+        }
+    }
+
     return (
         <section id="my-plants">
             <div className="sidebar">
@@ -51,14 +71,15 @@ export function MyPlants() {
             </nav>
 
             <div className="level-item" id="searchbar">
+                {
+                    noPlant ? <p className="has-text-danger">Plant not found. Please try again</p> : <br />
+                }
                 <div className="field has-addons">
                     <p className="control">
-                        <input className="input" type="text" placeholder="Search Plants"></input>
+                        <input className="input" type="text" placeholder="Search Plants" onChange={saveSearchQuery}></input>
                     </p>
                     <p className="control">
-                        <button className="button">
-                            Search
-                        </button>
+                        <input className="button" type="submit" value="Search" onClick={searchForPlant}></input>
                     </p>
                 </div>
             </div>

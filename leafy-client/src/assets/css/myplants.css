@@ -41,8 +41,13 @@
 
 /* Search Bar */
 #searchbar {
-    transform: translate(0%, 250%);
+    transform: translate(0%, 100%);
     display: none;
+    flex-direction: column;
+}
+
+#searchbar p {
+    margin-bottom: 20px;
 }
 
 /* My plants page */
