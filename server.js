@@ -5,6 +5,7 @@ const cors = require("cors");
 
 const config = require("./config");
 const authController = require("./controllers/auth.controller");
+const plantController = require("./controllers/plant.controller");
 
 const app = express();
 const expressSession = require("express-session"); // Express library to handle sessions
@@ -26,6 +27,7 @@ app.use(
 );
 
 app.use(authController);
+app.use(plantController)
 
 //Link front-end to back-end
 app.use(express.static("./leafy-client/build"));
