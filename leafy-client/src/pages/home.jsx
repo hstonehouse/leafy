@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import '../assets/css/home.css';
 import '../assets/css/login-register.css';
 import '../assets/css/myplants.css';
+import '../assets/css/plantpage.css';
 
 export function Home() {
     return (

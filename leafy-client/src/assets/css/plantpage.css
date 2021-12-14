@@ -1,0 +1,25 @@
+#arrow {
+    transform: translate(100%, 80%);
+    color: rgb(17,136,60);
+}
+
+.plant-container {
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    transform: translate(30%, 10%);
+}
+
+.plant-name {
+    color: rgb(17,136,60);
+    font-size: 12px;
+}
+
+.subheading {
+    color: rgb(17,136,60);
+    text-align: left;  
+}
+
+.description {
+    text-align: right;
+}
