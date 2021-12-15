@@ -59,7 +59,7 @@ router.post("/api/login", (req, res) => {
 // Check if user is logged in
 router.get("/api/user", (req, res) => {
     if (!req.session._id) {
-        return res.status(500).send({
+        return res.status(401).send({
             message: "Please log in."
         })
     }

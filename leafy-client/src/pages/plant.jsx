@@ -14,15 +14,18 @@ export function PlantPage() {
     const [petSafe, setPetSafe] = useState(""); // info on whether or not the plant is pet-safe
     const [plantImage, setPlantImage] = useState("") // the plant image URL
 
-    useEffect( async () => {
-        const response = await axios.get(`/api/plantsearch/${id}`);
-        setTitle(response.data[0].title);
-        setName(response.data[0].name);
-        setLight(response.data[0].light);
-        setWater(response.data[0].water);
-        setPetSafe(response.data[0].pet_safe);
-        setPlantImage(response.data[0].image);
-    })
+    useEffect( () => {
+        async function fetchData() {
+            const response = await axios.get(`/api/plantsearch/${id}`);
+            setTitle(response.data[0].title);
+            setName(response.data[0].name);
+            setLight(response.data[0].light);
+            setWater(response.data[0].water);
+            setPetSafe(response.data[0].pet_safe);
+            setPlantImage(response.data[0].image);
+        }
+        fetchData();
+    }, [])
 
     const backToMyPlants = () => {
         navigate("/myplants");
@@ -32,7 +35,8 @@ export function PlantPage() {
         event.preventDefault();
         try {
             await axios.post(`/api/plantsearch/${id}`);
-            console.log("Plant added!")
+            console.log("Plant added!");
+            navigate("/myplants");
         } catch (error) {
             console.log(error);    
         }
@@ -41,18 +45,18 @@ export function PlantPage() {
 
     return (
         <section id="one-plant">
-            <FontAwesomeIcon icon="arrow-left" size="2x" id="arrow" onClick={backToMyPlants}/>
+            <FontAwesomeIcon icon="arrow-left" size="2x" id="back-arrow" onClick={backToMyPlants}/>
             
             <div className="plant-container">
                 <div className="plantsquare">
                     <img src={`/images/${plantImage}`} alt={name} id="single-plant"/>
-                    <p className="bottom-left">Name of plant</p>  
+                    <p className="bottom-left">{title}</p>  
                 </div>
             </div>
 
-            <div className="is-flex-direction-column">
+            <div className="is-flex-direction-column name-container">
                 <p className="plant-name">{name}</p>
-                <p className="title">{title}</p>
+                <p className="plant-title">{title}</p>
             </div>
 
             <div className="plant-info">
@@ -66,7 +70,7 @@ export function PlantPage() {
 
             <div className="field">
                 <div className="control">
-                    <input className="button is-rounded" type="submit" value="Add to My Plants" id="form-button" onClick={addPlant}></input>
+                    <input className="button is-rounded" type="submit" value="Add to My Plants" id="add-remove-button" onClick={addPlant}></input>
                 </div>
             </div>
 
