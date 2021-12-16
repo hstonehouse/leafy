@@ -25,7 +25,7 @@ export function PlantPage() {
             setPlantImage(response.data[0].image);
         }
         fetchData();
-    }, [])
+    }, [id])
 
     const backToMyPlants = () => {
         navigate("/myplants");
@@ -38,7 +38,7 @@ export function PlantPage() {
             console.log("Plant added!");
             navigate("/myplants");
         } catch (error) {
-            console.log(error);    
+            navigate("/");   
         }
         
     }

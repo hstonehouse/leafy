@@ -1,16 +1,38 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useNavigate } from "react-router-dom";
-import GridImage from '../components/grid-image'
+import { GridImage } from '../components/grid-image'
 import axios from "axios";
-
 
 export function MyPlants() {
     const [sidebar, setSidebar] = useState(false);
     const [searchBar, setSearchBar] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
+    const [searchNotFound, setSearchNotFoundBoolean] = useState(false);
+    const [plantArray, setPlantArray] = useState([]);
     const [noPlant, setNoPlantBoolean] = useState(false);
     const navigate = useNavigate();
+
+    useEffect( () => {
+        async function fetchData() {
+            try { 
+                const response = await axios.get("api/user");
+                const plant_ids = response.data.plants;
+                // an array of promises
+                const promises = plant_ids.map(plant_id => axios.get(`/api/plantsearch/${plant_id}`));
+                // turns that array of promises into one single promise
+                const plants = await Promise.all(promises);
+                setPlantArray(plants);
+                if (plants.length === 0) {
+                    setNoPlantBoolean(true);
+                }
+            } catch (err) {
+                navigate("/");
+            }
+            
+        }
+        fetchData();
+    }, [])
     
     const showSideBar = () => {
         const sidebarDiv = document.querySelector(".sidebar");
@@ -43,6 +65,17 @@ export function MyPlants() {
         setSearchQuery(event.target.value);
     }
 
+    const logOut = async () => {
+        try {
+            await axios.get("api/user/logout");
+            console.log("Successfully logged out.")
+            navigate("/");
+        } catch (error) {
+            console.log(error);
+            navigate("/");
+        }
+    }
+
     const searchForPlant = async (event) => {
         event.preventDefault();
         try {
@@ -50,8 +83,11 @@ export function MyPlants() {
             console.log("Search complete", res.data[0]);
             navigate(`/plant/${res.data[0].plant_id}`)
         } catch (error) {
-            setNoPlantBoolean(true);
-            console.log("Search failed.");
+            if (error.response.status === 401) {
+                navigate("/");
+            } else {
+                setSearchNotFoundBoolean(true);
+            }
         }
     }
 
@@ -61,7 +97,7 @@ export function MyPlants() {
                 <ul>
                     <FontAwesomeIcon icon="arrow-left" id="small-arrow" onClick={showSideBar}/>
                     <li><a>Plant Directory</a></li>
-                    <li><a>Log Out</a></li>
+                    <li><a onClick={logOut}>Log Out</a></li>
                 </ul>
                 
             </div>
@@ -73,7 +109,7 @@ export function MyPlants() {
 
             <div className="level-item" id="searchbar">
                 {
-                    noPlant ? <p className="has-text-danger">Plant not found. Please try again</p> : <br />
+                    searchNotFound ? <p className="has-text-danger">Plant not found. Please try again</p> : <br />
                 }
                 <div className="field has-addons">
                     <p className="control">
@@ -85,14 +121,17 @@ export function MyPlants() {
                 </div>
             </div>
             
-            <p>Click + to add your first plant.</p>
+            
+            {
+                noPlant ? <p>Click + to add your first plant.</p> :
 
-            {/* <div className="all-plants">
-                <GridImage image={satinPothos} name="Satin Pothos"/>
-                <GridImage image={devilsivy} name="Devil's Ivy"/>
-                <GridImage image={begonia} name="Begonia Maculata"/>
-            </div> */}
-
+                 <div className="all-plants">
+                    {
+                        plantArray.map(plant => <GridImage key={plant.data[0].plant_id} image={`/images/${plant.data[0].image}`} name={plant.data[0].title}/>)
+                    }
+                 </div> 
+            }
+           
         </section>
     )
 }

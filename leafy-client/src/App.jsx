@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import { Home } from './pages/home';
 import { Login } from "./pages/login";
 import { Register } from "./pages/register";
@@ -11,7 +12,7 @@ import './assets/css/App.css';
 library.add(faArrowLeft, faSeedling, faBars, faPlusSquare)
 
 function App() {
-  
+
   return (
     <div >
       <BrowserRouter>

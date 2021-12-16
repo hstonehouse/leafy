@@ -83,4 +83,16 @@ router.get("/api/user", (req, res) => {
     })
 })
 
+// log out
+router.delete("api/user/logout", (req, res) => {
+    if (!req.session._id) {
+        return res.status(401).send({
+            message: "Please log in."
+        })
+    } else {
+        req.session.destroy();
+        return res.status(200).send({ message: "Logged out!"})
+    }
+})
+
 module.exports = router;
