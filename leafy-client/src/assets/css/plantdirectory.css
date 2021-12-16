@@ -1,0 +1,11 @@
+#plant-directory #navbar {
+    transform: translate(-5%, 150%);
+}
+
+#plant-directory .all-plants {
+    transform: translate(32%, 12%);
+}
+
+#plant-directory li {
+    color: white;
+}

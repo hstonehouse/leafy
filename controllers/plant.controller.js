@@ -5,6 +5,15 @@ const { ObjectId } = require('mongodb');
 const express = require("express");
 const router = express.Router();
 
+// retrieve all plants in database
+router.get("/api/plantdirectory", async (req, res) => {
+    if (!req.session._id) {
+        return res.status(401).send();
+    }
+    const allPlants = await Plant.find();
+    res.send(allPlants);
+})
+
 // search for a plant
 router.get("/api/plantsearch", async (req, res) => {
     if (!req.session._id) {

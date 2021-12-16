@@ -4,6 +4,7 @@ import '../assets/css/home.css';
 import '../assets/css/login-register.css';
 import '../assets/css/myplants.css';
 import '../assets/css/plantpage.css';
+import '../assets/css/plantdirectory.css';
 
 export function Home() {
     return (
