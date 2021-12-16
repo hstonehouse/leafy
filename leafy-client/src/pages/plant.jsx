@@ -13,6 +13,7 @@ export function PlantPage() {
     const [water, setWater] = useState(""); // info on how much water the plant needs
     const [petSafe, setPetSafe] = useState(""); // info on whether or not the plant is pet-safe
     const [plantImage, setPlantImage] = useState("") // the plant image URL
+    const [plantAlreadySaved, setPlantAlreadySavedBoolean] = useState(false);
 
     useEffect( () => {
         async function fetchData() {
@@ -27,6 +28,24 @@ export function PlantPage() {
         fetchData();
     }, [id])
 
+    // grab user's array of plants to see if this particular plant is already in their array
+    useEffect( () => {
+        async function fetchData() {
+            try { 
+                const response = await axios.get("/api/user");
+                const plantIds = response.data.plants;
+                if (plantIds.includes(id)) {
+                    setPlantAlreadySavedBoolean(true);
+                } else {
+                    setPlantAlreadySavedBoolean(false);
+                }
+            } catch (err) {
+                navigate("/");
+            }
+        }
+        fetchData();
+    }, [])
+
     const backToMyPlants = () => {
         navigate("/myplants");
     }
@@ -39,6 +58,17 @@ export function PlantPage() {
             navigate("/myplants");
         } catch (error) {
             navigate("/");   
+        }
+    }
+
+    const removePlant = async (event) => {
+        event.preventDefault();
+        try {
+            await axios.delete(`/api/plantsearch/${id}/remove`);
+            console.log("plant removed");
+            navigate("/myplants");
+        } catch (error) {
+            console.log("plant not removed");
         }
         
     }
@@ -70,7 +100,12 @@ export function PlantPage() {
 
             <div className="field">
                 <div className="control">
-                    <input className="button is-rounded" type="submit" value="Add to My Plants" id="add-remove-button" onClick={addPlant}></input>
+                    {
+                        plantAlreadySaved ? 
+                        <input className="button is-rounded" type="submit" value="Remove From My Plants" id="add-remove-button" onClick={removePlant}></input> :
+                        <input className="button is-rounded" type="submit" value="Add to My Plants" id="add-remove-button" onClick={addPlant}></input>
+                    }
+                    
                 </div>
             </div>
 

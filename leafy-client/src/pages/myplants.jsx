@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { GridImage } from '../components/grid-image'
 import axios from "axios";
 
@@ -16,7 +16,7 @@ export function MyPlants() {
     useEffect( () => {
         async function fetchData() {
             try { 
-                const response = await axios.get("api/user");
+                const response = await axios.get("/api/user");
                 const plant_ids = response.data.plants;
                 // an array of promises
                 const promises = plant_ids.map(plant_id => axios.get(`/api/plantsearch/${plant_id}`));
@@ -67,12 +67,11 @@ export function MyPlants() {
 
     const logOut = async () => {
         try {
-            await axios.get("api/user/logout");
+            await axios.delete("api/user/logout");
             console.log("Successfully logged out.")
             navigate("/");
         } catch (error) {
             console.log(error);
-            navigate("/");
         }
     }
 
@@ -127,7 +126,8 @@ export function MyPlants() {
 
                  <div className="all-plants">
                     {
-                        plantArray.map(plant => <GridImage key={plant.data[0].plant_id} image={`/images/${plant.data[0].image}`} name={plant.data[0].title}/>)
+                        plantArray.map(plant => 
+                        <Link to={`/plant/${plant.data[0].plant_id}`} key={plant.data[0].plant_id}><GridImage key={plant.data[0].plant_id} image={`/images/${plant.data[0].image}`} name={plant.data[0].title}/></Link>)
                     }
                  </div> 
             }

@@ -42,4 +42,17 @@ router.post("/api/plantsearch/:id", async (req, res) => {
     })
 })
 
+router.delete("/api/plantsearch/:id/remove", async (req, res) => {
+    if (!req.session._id) {
+        return res.status(401).send();
+    }
+    User.findOneAndUpdate({_id: ObjectId(req.session._id)}, {$pull: {plants: req.params.id}}).exec((err) => {
+        if (err) {
+            res.status(500).send({ message: err });
+        } else {
+            res.status(200).send({ message: "Success!"});
+        }
+    })
+})
+
 module.exports = router;
