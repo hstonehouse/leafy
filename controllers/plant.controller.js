@@ -7,9 +7,6 @@ const router = express.Router();
 
 // retrieve all plants in database
 router.get("/api/plantdirectory", async (req, res) => {
-    if (!req.session._id) {
-        return res.status(401).send();
-    }
     const allPlants = await Plant.find();
     res.send(allPlants);
 })

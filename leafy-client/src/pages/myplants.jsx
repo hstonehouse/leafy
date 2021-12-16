@@ -95,7 +95,7 @@ export function MyPlants() {
             <div className="sidebar">
                 <ul>
                     <FontAwesomeIcon icon="arrow-left" id="small-arrow" onClick={showSideBar}/>
-                    <li><a>Plant Directory</a></li>
+                    <li><Link to={"/plantdirectory"}>Plant Directory</Link></li>
                     <li><a onClick={logOut}>Log Out</a></li>
                 </ul>
                 

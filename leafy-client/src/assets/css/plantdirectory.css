@@ -1,11 +1,18 @@
 #plant-directory #navbar {
-    transform: translate(-5%, 150%);
+    transform: translate(-5%, 0%);
 }
 
 #plant-directory .all-plants {
-    transform: translate(32%, 12%);
+    transform: translate(32%, 0%);
 }
 
 #plant-directory li {
     color: white;
+}
+
+/* CSS for browser view */
+@media (min-width: 500px) {
+    #plant-directory #navbar {
+        transform: translate(-14%);
+    }
 }

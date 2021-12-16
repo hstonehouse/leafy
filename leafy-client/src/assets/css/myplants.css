@@ -1,5 +1,5 @@
 #navbar {
-    transform: translate(0%, 150%);
+    padding-top: 25px;
 }
 
 #navbar > p {
@@ -18,7 +18,7 @@
     background-color: black;
     z-index: 1;
     height: 100%;
-    width: 40%;
+    width: 28%;
     display: none;
 }
 
@@ -41,7 +41,7 @@
 
 /* Search Bar */
 #searchbar {
-    transform: translate(0%, 100%);
+    padding-top: 20px;
     display: none;
     flex-direction: column;
 }
@@ -61,7 +61,8 @@
     width: 65%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    transform: translate(25%, 30%);
+    transform: translate(25%, 0%);
+    padding-top: 30px;
 }
 
 #single-plant {
@@ -96,7 +97,7 @@
         width: 63%;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        transform: translate(30%, 50%);
+        transform: translate(30%, 0%);
         grid-gap: 10px;
     }
     .plantsquare {
@@ -121,6 +122,9 @@
         left: 10px;
         font-size: 17px;
         font-weight: 900;
+    }
+    .sidebar {
+        width: 18%;
     }
 }
 
