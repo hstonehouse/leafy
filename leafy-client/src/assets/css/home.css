@@ -28,9 +28,21 @@ main {
     transform: translate(23%, 0%);
 }
 
+#logo-div {
+    display: flex;
+    justify-content: center;
+}
+
 #logo-image {
     grid-area: image;
     transform: translate(132%, 0%);
+    animation: sway 1s infinite;
+    transform-origin: 50% 100% 0;
+}
+
+@keyframes sway {
+    0%, 100%{ transform: rotate(-15deg);}
+    50%{ transform: rotate(12deg); }
 }
 
 #login-button {

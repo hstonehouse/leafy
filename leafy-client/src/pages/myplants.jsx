@@ -62,7 +62,7 @@ export function MyPlants() {
     }
 
     const saveSearchQuery = (event) => {
-        setSearchQuery(event.target.value);
+        setSearchQuery(event.target.value.toLowerCase());
     }
 
     const logOut = async () => {

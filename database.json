@@ -69,6 +69,36 @@
     "pet_safe": "No"
 },
 {
+    "plant_id": 8,
+    "title": "Rubber Plant",
+    "name": "Ficus Elastica Burgundy",
+    "aliases": ["rubber plant", "ficus elastica burgundy", "rubber fig", "rubber tree"],
+    "image": "rubber-plant.jpeg",
+    "water": "Water regularly and moderately.",
+    "light": "Medium indirect light.",
+    "pet_safe": "No"
+},
+{
+    "plant_id": 9,
+    "title": "Triple Splash",
+    "name": "Hypoestes Phyllostachya",
+    "aliases": ["triple splash", "hypoestes phyllostachya", "polka dot plant"],
+    "image": "triple-splash.jpeg",
+    "water": "Water when soil feels dry or plant starts to droop.",
+    "light": "Bright light.",
+    "pet_safe": "Safe in small amounts."
+},
+{
+    "plant_id": 10,
+    "title": "Peacock plant",
+    "name": "Goeppertia Makoyana",
+    "aliases": ["peacock plant", "goeppertia makoyana", "calathea makoyana"],
+    "image": "peacock.jpeg",
+    "water": "Maintain moist soil. Water once the surface of the soil starts to dry.",
+    "light": "Bright, indirect light. Avoid direct sunlight.",
+    "pet_safe": "Yes."
+},
+{
     "user-id": "",
     "email": "",
     "password": "",

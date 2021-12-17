@@ -11,7 +11,9 @@ export function Home() {
         <main>
             <div className="homepage-container">
                     <p id="heading">Leafy</p>
-                    <FontAwesomeIcon icon="seedling" size="3x" color="rgb(17,136,60)" id="logo-image"/>
+                    <div id="logo-div">
+                        <FontAwesomeIcon icon="seedling" size="3x" color="rgb(17,136,60)" id="logo-image"/>
+                    </div>
                     <Link to="/login" className="button is-rounded" id="login-button"> Log in</Link>
                     <Link to="/register" className="button is-rounded" id="register-button"> Create Account</Link>
             </div>
