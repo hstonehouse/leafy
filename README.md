@@ -7,7 +7,7 @@ Leafy is best used on mobile.
 
 ### Technologies used:
 - React
-- MongoDB Atlas | Mongoose
+- [MongoDB Atlas](https://docs.atlas.mongodb.com/getting-started/) | [Mongoose](https://www.freecodecamp.org/news/introduction-to-mongoose-for-mongodb-d2a7aa593c57/)
 - Express | Node JS
 - Axios
 - Bcrypt
@@ -17,18 +17,17 @@ Leafy is best used on mobile.
 
 ### How to install React and all the necessary dependencies
 
- `npm create-react-app leafy`
- `npm install`
-
+ ```
+ npm create-react-app leafy
+ npm install
+ ```
 
 ### PLEASE NOTE - I built my own houseplant api using mongoDB as I was unable to find a houseplant api that suited my needs for this project. 
 
-### How to set up the MongoDB Database
-```
-mongosh
-use leafy
-db.plants.insert( use data from database.json here )
-```
+### How to set up the MongoDB Atlas Database
+Follow [this](https://docs.atlas.mongodb.com/getting-started/) tutorial to set up the MongoDB Atlas database.
+For parts 5 and 6, select MongoDB Shell.
+For part 6, use the data from database.json. 
 
 ### Project Planning
 - [Figma mockups](https://www.figma.com/file/I6nmGdyPJtb4jX66IuJQ8P/Leafy?node-id=0%3A1)

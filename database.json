@@ -117,12 +117,5 @@
     "water": "Lightly moist but not soggy soil. Better to underwater than overwater.",
     "light": "Light shade. Avoid direct sunlight.",
     "pet_safe": "Yes."
-},
-{
-    "user-id": "",
-    "email": "",
-    "password": "",
-    "plants": []
-}
-    
+} 
 ]
