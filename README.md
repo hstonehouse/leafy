@@ -6,14 +6,14 @@ Leafy is best used on mobile.
 ### Leafy was created using React and deployed on Heroku - go to Leafy [here](https://leafyplantcare.herokuapp.com/)
 
 ### Technologies used:
-- React
+- [React](https://reactjs.org)
 - [MongoDB Atlas](https://docs.atlas.mongodb.com/getting-started/) | [Mongoose](https://www.freecodecamp.org/news/introduction-to-mongoose-for-mongodb-d2a7aa593c57/)
-- Express | Node JS
-- Axios
-- Bcrypt
-- Heroku
-- Bulma (CSS framework)
-- Font Awesome
+- [Express | Node JS](https://expressjs.com/)
+- [Axios](https://axios-http.com/docs/intro)
+- [Bcrypt] (https://www.npmjs.com/package/bcrypt)
+- [Heroku](https://www.heroku.com)
+- [Bulma (CSS framework)](https://bulma.io/)
+- [Font Awesome](https://fontawesome.com/)
 
 ### How to install React and all the necessary dependencies
 
