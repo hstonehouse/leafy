@@ -28,7 +28,7 @@ app.use(
 );
 
 app.use(authController);
-app.use(plantController)
+app.use(plantController);
 
 //Link front-end to back-end
 app.use(express.static("./leafy-client/build"));

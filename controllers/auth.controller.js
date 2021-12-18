@@ -1,4 +1,4 @@
-const User = require("../models/user.model")
+const User = require("../models/user.model");
 
 const express = require("express");
 const bcrypt = require("bcryptjs");
@@ -85,7 +85,6 @@ router.get("/api/user", (req, res) => {
 
 // log out
 router.delete("/api/user/logout", (req, res) => {
-    console.log("blah")
     if (!req.session._id) {
         return res.status(401).send({
             message: "Please log in."

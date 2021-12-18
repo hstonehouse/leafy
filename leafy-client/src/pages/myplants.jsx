@@ -68,7 +68,7 @@ export function MyPlants() {
     const logOut = async () => {
         try {
             await axios.delete("api/user/logout");
-            console.log("Successfully logged out.")
+            console.log("Successfully logged out.");
             navigate("/");
         } catch (error) {
             console.log(error);
@@ -79,8 +79,7 @@ export function MyPlants() {
         event.preventDefault();
         try {
             const res = await axios.get(`/api/plantsearch?plant=${searchQuery}`);
-            console.log("Search complete", res.data[0]);
-            navigate(`/plant/${res.data[0].plant_id}`)
+            navigate(`/plant/${res.data[0].plant_id}`);
         } catch (error) {
             if (error.response.status === 401) {
                 navigate("/");

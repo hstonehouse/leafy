@@ -30,7 +30,6 @@ router.get("/api/plantsearch/:id", async (req, res) => {
         return res.status(401).send();
     }
     const plantData = await Plant.find({plant_id: req.params.id}).exec();
-    console.log(req.session._id)
     res.send(plantData);
 })
 

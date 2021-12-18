@@ -6,11 +6,11 @@ import { Register } from "./pages/register";
 import { MyPlants } from "./pages/myplants";
 import { PlantPage } from "./pages/plant";
 import { PlantDirectory } from "./pages/plantdirectory";
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faArrowLeft, faSeedling, faBars, faPlusSquare} from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faArrowLeft, faSeedling, faBars, faPlusSquare} from '@fortawesome/free-solid-svg-icons';
 import './assets/css/App.css';
 
-library.add(faArrowLeft, faSeedling, faBars, faPlusSquare)
+library.add(faArrowLeft, faSeedling, faBars, faPlusSquare);
 
 function App() {
 
