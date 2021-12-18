@@ -10,7 +10,7 @@ Leafy is best used on mobile.
 - [MongoDB Atlas](https://docs.atlas.mongodb.com/getting-started/) | [Mongoose](https://www.freecodecamp.org/news/introduction-to-mongoose-for-mongodb-d2a7aa593c57/)
 - [Express | Node JS](https://expressjs.com/)
 - [Axios](https://axios-http.com/docs/intro)
-- [Bcrypt] (https://www.npmjs.com/package/bcrypt)
+- [Bcrypt](https://www.npmjs.com/package/bcrypt)
 - [Heroku](https://www.heroku.com)
 - [Bulma (CSS framework)](https://bulma.io/)
 - [Font Awesome](https://fontawesome.com/)
