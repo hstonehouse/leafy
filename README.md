@@ -3,7 +3,7 @@ Leafy helps you take care of your houseplants. Instead of relying on those cards
 
 Leafy is best used on mobile.
 
-### Leafy was created using React and deployed on Heroku - go to Leafy [here](https://leafyplantcare.herokuapp.com/)
+### Leafy was created using React and deployed to Heroku - go to Leafy [here](https://leafyplantcare.herokuapp.com/)
 
 ### Technologies used:
 - [React](https://reactjs.org)
