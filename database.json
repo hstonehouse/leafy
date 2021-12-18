@@ -33,7 +33,7 @@
     "title": "Swiss Cheese Plant",
     "name": "Monstera Adansonii",
     "aliases": ["swiss cheese plant", "swiss cheese vine", "monstera adansonii", "five holes plant", "adanson's monstera"],
-    "image": "monstera-adansonii.jpeg",
+    "image": "monstera-adansonii.webp",
     "water": "Consistently moist but not soaked. Before watering your Swiss cheese plant, stick your finger into the soil about an inch deep. If the soil feels nearly dry to the touch, it's time to water the plant.",
     "light": "Bright, indirect light.",
     "pet_safe": "No"
@@ -96,6 +96,26 @@
     "image": "peacock.jpeg",
     "water": "Maintain moist soil. Water once the surface of the soil starts to dry.",
     "light": "Bright, indirect light. Avoid direct sunlight.",
+    "pet_safe": "Yes."
+},
+{
+    "plant_id": 11,
+    "title": "Zebra Plant",
+    "name": "Calathea Zebrina",
+    "aliases": ["zebra plant", "calathea zebrina"],
+    "image": "calathea-zebrina.jpeg",
+    "water": "Keep the soil lightly moist, watering once the top of the soil is just starting to dry out. Avoid soggy soil.",
+    "light": "Bright or medium, indirect light.",
+    "pet_safe": "Yes."
+},
+{
+    "plant_id": 12,
+    "title": "Spider Plant",
+    "name": "Chlorophytum comosum",
+    "aliases": ["spider plant", "chlorophytum comosum", "ribbon plant"],
+    "image": "spiderplant.jpeg",
+    "water": "Lightly moist but not soggy soil. Better to underwater than overwater.",
+    "light": "Light shade. Avoid direct sunlight.",
     "pet_safe": "Yes."
 },
 {
