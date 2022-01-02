@@ -109,16 +109,19 @@ export function MyPlants() {
                 {
                     searchNotFound ? <p className="has-text-danger">Plant not found. Please try again</p> : <br />
                 }
-                <div className="field has-addons">
-                    <p className="control">
-                        <input className="input" type="text" placeholder="Search Plants" onChange={saveSearchQuery}></input>
-                    </p>
-                    <p className="control">
-                        <input className="button" type="submit" value="Search" onClick={searchForPlant}></input>
-                    </p>
-                </div>
+                
+                <form onSubmit={searchForPlant}>
+                    <div className="field has-addons">
+                        <p className="control">
+                            <input className="input" type="text" placeholder="Search Plants" onChange={saveSearchQuery}></input>
+                        </p>
+                        <p className="control">
+                            <input className="button" type="submit" value="Search" onClick={searchForPlant}></input>
+                        </p>
+                    </div>
+                </form>
+ 
             </div>
-            
             
             {
                 noPlant ? <p>Click + to add your first plant.</p> :
