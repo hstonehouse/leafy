@@ -34,7 +34,6 @@ For part 6, use the data from database.json.
 - [Trello board](https://trello.com/b/7x0esrOw/leafy)
 
 ### Future improvements and implementations
-- Give the user search results when they search a partial name of a plant or just one keyword
 - Give plant suggestions as the user types in the search bar
 - Utilise or build a more extensive houseplant api that has more data
 - Allow the user identify their plant from a photo that they upload
